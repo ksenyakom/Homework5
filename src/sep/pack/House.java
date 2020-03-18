@@ -4,7 +4,7 @@ public class House {
     private int year;
     private int flore;
     private Address address = new Address();
-    private static  int count=0;
+    private static int count = 0;
 
     public House() {
         count++;
@@ -17,8 +17,9 @@ public class House {
         this.address = address;
         count++;
     }
-    public static int getCount(){
-        return  count;
+
+    public static int getCount() {
+        return count;
     }
 
     public int getYear() {
@@ -44,17 +45,20 @@ public class House {
     public void setAddress(Address address) {
         this.address = address;
     }
-    public String getFullInfo(){
-        return year+" года постройки,  этажность "+flore+". "+ address.getFullAddress();
+
+    public String getFullInfo() {
+        return year + " года постройки,  этажность " + flore + ". " + address.getFullAddress();
     }
 
-    public void setStreet(String newstreet){
+    public void setStreet(String newstreet) {
         address.setStreet(newstreet);
     }
-    public void setHouseNumber (int newHouseNumber){
+
+    public void setHouseNumber(int newHouseNumber) {
         address.setHouseNumber(newHouseNumber);
     }
-    public void setHousing (int newHousing){
+
+    public void setHousing(int newHousing) {
         address.setHousing(newHousing);
     }
 

@@ -27,7 +27,7 @@ public class Main {
         boolean cycle = true;
 
         while (cycle) {
-            System.out.print("Выберите действие:\n" +
+            System.out.print(" * Выберите действие:\n" +
                     "1. Просмотреть информацию по всем домам \n" +
                     "2. Просмотреть информацию по одному дому №  \n" +
                     "3. Редактировать инфомацию по дому \n" +
@@ -42,7 +42,7 @@ public class Main {
                     for (int i = 0; i < n; i++) {
                         if (base[i] != null) System.out.println((i + 1) + ". " + base[i].getFullInfo());
                     }
-                    System.out.println("\n Выберите действие: 1. Возрат в меню, 5. Выход ");
+                    System.out.println("\n * Выберите действие: 1. Возрат в меню, 5. Выход ");
                     userChoice = scannerInt(scanner);
                     if (userChoice == 5) cycle = false;
                     break;
@@ -100,7 +100,9 @@ public class Main {
                             case (3): {
                                 System.out.println("Введите улицу: ");
 
-                                String street = scanner1.nextLine(); // почему не получается с scanner.nextLine()?
+                                String street = scanner1.nextLine();
+                                // почему не получается с одним сканером                ???
+                                // String street = scanner.nextLine()
                                 base[changeObjNumber - 1].setStreet(street);
                                 break;
                             }
@@ -130,30 +132,31 @@ public class Main {
                     int i = House.getCount();
                     base[i] = new House();
 
-                    System.out.print(" Введите данные по дому: Год постройки ");
+                    System.out.print(" * Введите данные по дому: Год постройки ");
                     int year = scannerInt(scanner);
                     base[i].setYear(year);
 
-                    System.out.print(" Введите данные по дому: Этажность ");
+                    System.out.print(" * Введите данные по дому: Этажность ");
                     int flore = scannerInt(scanner);
                     base[i].setFlore(flore);
 
-                    System.out.print(" Введите данные по дому: Улица ");
+                    System.out.print(" * Введите данные по дому: Улица ");
                     String street = scanner1.nextLine();
                     base[i].setStreet(street);
 
-                    System.out.print(" Введите данные по дому: Номер дома ");
+                    System.out.print(" * Введите данные по дому: Номер дома ");
                     int homeNumber = scannerInt(scanner);
                     base[i].setHouseNumber(homeNumber);
 
-                    System.out.print(" Введите данные по дому: Корпус ");
+                    System.out.print(" * Введите данные по дому(Enter пропустить): Корпус ");
                     String housingString = scanner1.nextLine();
                     boolean bool = housingString.isEmpty();
-                    if (!bool)  {
-                        int j = Integer.parseInt(housingString);
-                        base[i].setHousing(j);}
+                    if (!bool) {
+                        int housing = Integer.parseInt(housingString);
+                        base[i].setHousing(housing);
+                    }
 
-                    System.out.println("Данные сохранены. " + base[i].getFullInfo());
+                    System.out.println("Данные сохранены. " + (i + 1) + ". " + base[i].getFullInfo());
 
                     System.out.println("\n Выберите действие: 1. Возрат в меню, 5. Выход ");
                     userChoice = scannerInt(scanner);
@@ -172,8 +175,10 @@ public class Main {
     public static int scannerInt(Scanner scanner) {
 
         int i = scanner.nextInt();
-        while  (i<0) {System.out.println ("Введите положительное число");
-            i = scanner.nextInt();}
+        while (i < 0) {
+            System.out.println("Введите положительное число");
+            i = scanner.nextInt();
+        }
 
         return i;
 

@@ -53,8 +53,7 @@ public class Address {
 
         if (housing != null) {
             s = "Адрес: ул." + street + ", дом " + houseNumber + ", корпус " + housing;
-        }
-        else     s = "Адрес: ул." + street + ", дом " + houseNumber;
+        } else s = "Адрес: ул." + street + ", дом " + houseNumber;
         return s;
     }
 }
